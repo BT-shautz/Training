@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
+#this is a git test message
 from datetime import timedelta
 from openerp import models, fields, api
 
