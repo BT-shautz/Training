@@ -44,6 +44,7 @@ class Session(models.Model):
     # color for the kanban view
     color = fields.Integer()
     
+    # state
     state = fields.Selection([
          ('draft', "Draft"),
          ('confirmed', "Confirmed"),
