@@ -1,0 +1,6 @@
+-
+  In order to test the courses, I create a new course
+-
+  !record {model: openacademy.course, id: course_1}:
+    name: inventory prod
+    description: product

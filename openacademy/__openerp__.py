@@ -36,5 +36,8 @@
              ],
     'demo': [],
     'installable': True,
+     'test': [
+        'test/course.yml',
+    ],
 
 }
