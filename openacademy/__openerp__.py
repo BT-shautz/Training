@@ -34,7 +34,7 @@
              'security/ir.model.access.csv',
              'reports/openacademy_reports.xml',
              ],
-    'demo': [],
+    'demo': ['res_partner.xml'],
     'installable': True,
      'test': [
         'test/course.yml',
