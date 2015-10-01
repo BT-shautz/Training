@@ -11,6 +11,8 @@
             <field name="arch" type="xml">
                 <field name="function" position="after">
                 	<field name="instructor"/>
+                	<field name="nameCandidate"/>
+                	<field name="addressCandidate"/>
                 </field>
             </field>
 		</record>
