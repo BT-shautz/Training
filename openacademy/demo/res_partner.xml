@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+    	<record id="base.res_partner_2" model="res.partner">
+   			<field name="nameCandidate">Jorge</field>
+    	</record>
+    </data>
+</openerp>
