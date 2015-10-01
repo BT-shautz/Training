@@ -1,8 +1,301 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data noupdate="1">
-    	<record id="base.res_partner_2" model="res.partner">
-   			<field name="nameCandidate">Jorge</field>
+  
+    	<record id="base.public_partner" model="res.partner">
+   			<field name="nameCandidate">Jorgepp</field>
     	</record>
+    	
+    	<record id="base.public_user_res_partner" model="res.partner">
+   			<field name="nameCandidate">Jorgepurp</field>
+    	</record>
+    	
+    	<record id="base.main_partner" model="res.partner">
+   			<field name="nameCandidate">Jorgemp</field>
+    	</record>
+    	
+    	<record id="base.user_demo_res_partner" model="res.partner">
+   			<field name="nameCandidate">Jorgeudrp</field>
+    	</record>    	
+
+    	<record id="base.res_partner_1" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_2" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_3" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_4" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_5" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_6" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_7" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_8" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_9" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_10" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_11" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>
+
+    	<record id="base.res_partner_12" model="res.partner">
+   			<field name="nameCandidate">Jorgerp12</field>
+    	</record>    	
+    	
+    	<record id="base.res_partner_13" model="res.partner">
+   			<field name="nameCandidate">Jorgerp13</field>
+    	</record>    	
+    	
+    	<record id="base.res_partner_14" model="res.partner">
+   			<field name="nameCandidate">Jorgerp14</field>
+    	</record>
+    	
+    	<record id="base.res_partner_15" model="res.partner">
+   			<field name="nameCandidate">Jorgerp15</field>
+    	</record>
+    	
+    	<record id="base.res_partner_16" model="res.partner">
+   			<field name="nameCandidate">Jorgerp16</field>
+    	</record>
+    	
+    	<record id="base.res_partner_17" model="res.partner">
+   			<field name="nameCandidate">Jorgerp17</field>
+    	</record>
+    	
+    	<record id="base.res_partner_18" model="res.partner">
+   			<field name="nameCandidate">Jorgerp18</field>
+    	</record>
+    	
+    	<record id="base.res_partner_19" model="res.partner">
+   			<field name="nameCandidate">Jorgerp19</field>
+    	</record>
+    	
+    	<record id="base.res_partner_20" model="res.partner">
+   			<field name="nameCandidate">Jorgerp20</field>
+    	</record>
+    	
+    	<record id="base.res_partner_21" model="res.partner">
+   			<field name="nameCandidate">Jorgerp21</field>
+    	</record>
+    	
+    	<record id="base.res_partner_22" model="res.partner">
+   			<field name="nameCandidate">Jorgerp22</field>
+    	</record>
+    	
+    	<record id="base.res_partner_23" model="res.partner">
+   			<field name="nameCandidate">Jorgerp23</field>
+    	</record>
+    	
+    	<record id="base.res_partner_24" model="res.partner">
+   			<field name="nameCandidate">Jorgerp24</field>
+    	</record>    	
+
+    	<record id="base.res_partner_25" model="res.partner">
+   			<field name="nameCandidate">Jorgerp25</field>
+    	</record> 
+    	
+    	<record id="base.res_partner_26" model="res.partner">
+   			<field name="nameCandidate">Jorgerp26</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_1" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd1</field>
+    	</record>    	
+    	
+    	<record id="base.res_partner_address_2" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd2</field>
+    	</record>
+
+    	<record id="base.res_partner_address_3" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd3</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_4" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd4</field>
+    	</record>    	
+    	
+    	<record id="base.res_partner_address_5" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd5</field>
+    	</record>
+
+    	<record id="base.res_partner_address_6" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd6</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_7" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd7</field>
+    	</record>    	
+    	
+    	<record id="base.res_partner_address_8" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd8</field>
+    	</record>
+
+    	<record id="base.res_partner_address_9" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd9</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_10" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd10</field>
+    	</record>
+
+    	<record id="base.res_partner_address_11" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd11</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_12" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd12</field>
+    	</record>
+
+    	<record id="base.res_partner_address_13" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd13</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_14" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd14</field>
+    	</record>
+
+    	<record id="base.res_partner_address_15" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd15</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_16" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd16</field>
+    	</record>
+
+    	<record id="base.res_partner_address_17" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd17</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_18" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd18</field>
+    	</record>
+
+    	<record id="base.res_partner_address_19" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd19</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_20" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd20</field>
+    	</record>
+
+    	<record id="base.res_partner_address_21" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd21</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_22" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd22</field>
+    	</record>
+
+    	<record id="base.res_partner_address_23" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd23</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_24" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd24</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_25" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd25</field>
+    	</record>
+
+    	<record id="base.res_partner_address_26" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd26</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_27" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd27</field>
+    	</record>
+
+    	<record id="base.res_partner_address_28" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd28</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_29" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd29</field>
+    	</record>
+
+    	<record id="base.res_partner_address_30" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd30</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_31" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd31</field>
+    	</record>
+
+    	<record id="base.res_partner_address_32" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd32</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_33" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd33</field>
+    	</record>
+
+    	<record id="base.res_partner_address_34" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd34</field>
+    	</record>
+    	
+    	<record id="base.res_partner_address_35" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd35</field>
+    	</record>
+
+    	<record id="base.res_partner_address_36" model="res.partner">
+   			<field name="nameCandidate">Jorgerpd36</field>
+    	</record>
+    	
+     	<record id="base.partner_root" model="res.partner">
+   			<field name="nameCandidate">Jorgepr</field>
+    	</record>
+    	
+     	<record id="base.partner_demo" model="res.partner">
+   			<field name="nameCandidate">Jorgepd</field>
+    	</record>  	
+
+     	<record id="auth_signup.default_template_user_res_partner" model="res.partner">
+   			<field name="nameCandidate">Jorgedturp</field>
+    	</record>
+
+     	<record id="portal.partner_demo_portal" model="res.partner">
+   			<field name="nameCandidate">Jorgedturp</field>
+    	</record>
+ 
+      	<record id="portal.demo_user0_res_partner" model="res.partner">
+   			<field name="nameCandidate">Jorgedturp</field>
+    	</record> 
+
+      	<record id="base.res_partner_main1" model="res.partner">
+   			<field name="nameCandidate">Jorgedturp</field>
+    	</record>
+    	
+      	<record id="base.res_partner_main2" model="res.partner">
+   			<field name="nameCandidate">Jorgedturp</field>
+    	</record>  	
+    	
     </data>
+    
+    
 </openerp>
+
