@@ -25,3 +25,5 @@ class Partner(models.Model):
     _inherit = 'res.partner'
     
     instructor = fields.Boolean(string="Is an instructor?")
+    nameCandidate = fields.Char(string="Name of the candidate", required=True)
+    addressCandidate = fields.Char(string="Address of the candidate", required=True)
