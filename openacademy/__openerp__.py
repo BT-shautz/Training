@@ -37,7 +37,7 @@
     'demo': ['demo/res_partner.xml'],
     'installable': True,
      'test': [
-        'test/course.yml',
+        'test/course.yml', 'test/res_partner.yml'
     ],
 
 }

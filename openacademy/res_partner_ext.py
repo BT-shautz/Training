@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from openerp import api, models, fields
 
 class Partner(models.Model):
     _inherit = 'res.partner'
@@ -27,3 +27,19 @@ class Partner(models.Model):
     instructor = fields.Boolean(string="Is an instructor?")
     nameCandidate = fields.Char(string="Name of the candidate", required=True)
     addressCandidate = fields.Char(string="Address of the candidate", required=True)
+    
+    @api.one
+    def _assign_address(self):
+        
+        self.addressCandidate = "Calle Velazquez"
+    
+    @api.model
+    def _add_data_partner(self):
+        """ 
+        Assign values to demo mandatory fields within res.partner
+        """
+        # Find records with empty firstname and lastname
+        partners_null = self.search([("addressCandidate", "=", False)])
+
+        # Force calculations there
+        partners_null._assign_address()
