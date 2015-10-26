@@ -25,8 +25,8 @@ class Partner(models.Model):
     _inherit = 'res.partner'
     
     instructor = fields.Boolean(string="Is an instructor?")
-    nameCandidate = fields.Char(string="Name of the candidate", required=True)
-    addressCandidate = fields.Char(string="Address of the candidate", required=True)
+    name_candidate = fields.Char(string="Name of the candidate", required=True)
+    address_candidate = fields.Char(string="Address of the candidate", required=True)
     
     @api.one
     def _assign_address(self):
@@ -39,7 +39,7 @@ class Partner(models.Model):
         Assign values to demo mandatory fields within res.partner
         """
         # Find records with empty firstname and lastname
-        partners_null = self.search([("addressCandidate", "=", False)])
+        partners_null = self.search([("address_candidate", "=", False)])
 
         # Force calculations there
         partners_null._assign_address()
