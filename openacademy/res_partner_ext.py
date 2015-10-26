@@ -31,7 +31,7 @@ class Partner(models.Model):
     @api.one
     def _assign_address(self):
         
-        self.addressCandidate = "Calle Velazquez"
+        self.address_candidate = "Calle Velazquez"
     
     @api.model
     def _add_data_partner(self):
