@@ -1,7 +1,7 @@
 # b-*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (c) 2015 brain-tec AG (http://www.brain-tec.ch)
+#    Copyright (c) 2015 brain-tec AG (http://www.braintec-group.com) 
 #    All Right Reserved
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,21 +19,33 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 class Course(models.Model):
     _name = 'openacademy.course'
 
-    name = fields.Char(string="Course Name", required=True)
+# Use _rec_name if there is no name field.
+#    _rec_name = 'description'
+
+    name = fields.Char(string="Course")
     description = fields.Text(string="Course Description")
-
     responsible_id = fields.Many2one('res.users', string="Responsible")
+    session_ids = fields.One2many(comodel_name='openacademy.session', inverse_name='course_id', string="Session")
 
-    session_ids = fields.One2many('openacademy.session', 'course_id')
+    @api.multi
+    def copy(self, default):
+        default = dict(default or {})
+        new_name = u"Copy of {}".format(self.name)
+        default['name'] = new_name
+        return super(Course, self).copy(default)
 
+    _sql_constraints = [
+        ('name_description_check',
+         'CHECK(name != description)',
+         "The title of the course should not be the description"),
 
-
-
-
-
+        ('name_unique',
+         'UNIQUE(name)',
+         "The course title must be unique"),
+    ]
 

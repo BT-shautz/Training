@@ -1,7 +1,7 @@
 # b-*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (c) 2015 brain-tec AG (http://www.braintec-group.com)
+#    Copyright (c) 2015 brain-tec AG (http://www.braintec-group.com) 
 #    All Right Reserved
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,27 +19,13 @@
 #
 ##############################################################################
 
-from openerp import api, models, fields
+from openerp import models, fields, api
 
 class Partner(models.Model):
+    _name = 'res.partner'
     _inherit = 'res.partner'
-    
-    instructor = fields.Boolean(string="Is an instructor?")
-    name_candidate = fields.Char(string="Name of the candidate", required=True)
-    address_candidate = fields.Char(string="Address of the candidate", required=True)
-    
-    @api.one
-    def _assign_address(self):
-        
-        self.address_candidate = "Calle Velazquez"
-    
-    @api.model
-    def _add_data_partner(self):
-        """ 
-        Assign values to demo mandatory fields within res.partner
-        """
-        # Find records with empty firstname and lastname
-        partners_null = self.search([("address_candidate", "=", False)])
 
-        # Force calculations there
-        partners_null._assign_address()
+    instructor = fields.Boolean(string="Is an instructor?")
+
+
+
