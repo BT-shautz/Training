@@ -23,3 +23,4 @@ from openerp import models, fields
 
 class Test(models.Model):
     _name = 'openacademy.test'
+    
