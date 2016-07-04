@@ -1,7 +1,7 @@
 # b-*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (c) 2015 brain-tec AG (http://www.braintec-group.com) 
+#    Copyright (c) 2015 brain-tec AG (http://www.brain-tec.ch)
 #    All Right Reserved
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,23 +21,17 @@
 
 from openerp import models, fields, api
 
-class Course(models.Model):
-    _name = 'openacademy.course'
-
-    name = fields.Char(string="Course", required=True)
-    description = fields.Text(string="Description", help="Enter your course description")
-    session_ids = fields.One2many(string="Sessions", comodel_name="openacademy.session",
-                    inverse_name="course_id")
-
+class Wizard(models.TransientModel):
+    _name = 'openacademy.wizard'
+    
+    session_ids = fields.Many2many(comodel_name='openacademy.session', string="Sessions")
+    attendee_ids = fields.Many2many(comodel_name='res.partner', string="Attendees")
+    
     @api.multi
-    def copy(self, default=None):
-        default = dict(default or {})
-        new_name = u"Copy of {}".format(self.name)
-        default['name'] = new_name
-        return super(Course,self).copy(default)
+    def subscribe(self):
+        # do something
+        for session_id in self.session_ids:
+            for attendee_id in self.attendee_ids:
+                session_id.attendee_ids = session_id.attendee_ids + attendee_id
+        return {}
 
-    _sql_constraints = [
-        ('name_unique_check',
-         'UNIQUE(name)',
-         "The course title must be unique.")
-    ]

@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
 {
+
     'name': "Open Academy",
-    'summary': "Module for managing courses.",
-    'description': """ longer description """,
-    'author': "brain-tec AG",
+    'description': "Module for managing courses",
+    'author' : "brain-tec AG",
     'category': "Education",
     'version': "1.0",
-    'depends': ['base',],
-    'data': [
-            'views/openacademy.xml',
-            'workflows/session_workflow.xml',
-            'reports/openacademy_reports.xml',
-    ]
+    'depends': ['base'],
+    'data': ['views/openacademy.xml',
+             'workflows/session_workflow.xml',
+             'reports/openacademy_session_report.xml',
+             'security/openacademy_security.xml',
+             'security/ir.model.access.csv',]
+
 }

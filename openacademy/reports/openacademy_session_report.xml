@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <!-- WEBKIT REPORT WITH MAKO TEMPLATE -->
+    <report id="openacademy_course_report" model="openacademy.course"
+            name="openacademy_course_report" string="Course Report"
+            file="openacademy/reports/course_report.mako"
+            report_type="webkit" />
+
+    <!-- QWEB Session Report -->
+    <report id="session_report"
+            model="openacademy.session"
+            string="Session Report"
+            name="openacademy.report_session_view"
+            file="openacademy.report_session_view"
+            report_type="qweb-pdf" />
+
+    <template id="report_session_view">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2 t-field="doc.name"/>
+                        <p>From: <span t-field="doc.start_date"/></p>
+                        <p>Duration: <span t-field="doc.duration"/> days</p>
+                        <h3>Attendees:</h3>
+                        <ul>
+                            <t t-foreach="doc.attendee_ids" t-as="attendee">
+                                <li><span t-field="attendee.name"/></li>
+                            </t>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</data>
+</openerp>

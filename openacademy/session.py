@@ -19,70 +19,63 @@
 #
 ##############################################################################
 
-from openerp.exceptions import ValidationError
-
 from openerp import models, fields, api
+from openerp.exceptions import ValidationError
 
 class Session(models.Model):
     _name = 'openacademy.session'
 
+    active = fields.Boolean(string="Active", default=True)
     name = fields.Char(string="Session Name", required=True)
     start_date = fields.Date(string="Start Date", default=fields.Date.today)
     duration = fields.Integer(string="Duration in days", default=5)
-    seats = fields.Integer(string="Number of seats", default=10)
-
-    course_id = fields.Many2one('openacademy.course', string="Course", required=True)
-    instructor_id = fields.Many2one('res.partner', string="Instructor", domain="[('instructor', '=', True)]")
-    attendee_ids = fields.Many2many('res.partner', string="Attendees")
-
-    taken_seats = fields.Float(string="Taken Seats", compute='_compute_taken_seats')
+    seats = fields.Integer(string="Number of seats", default=20)
+    instructor_id = fields.Many2one(string="Instructor", comodel_name='res.users', domain=[('is_instructor', '=', True)])
+    course_id = fields.Many2one(string="Course", comodel_name='openacademy.course') 
+    attendee_ids = fields.Many2many(string="Attendees", comodel_name='res.partner')
+    taken_seats = fields.Float(string="Taken Seats", compute='_compute_taken_seats', store=True)
     color = fields.Integer(string="Color")
-    
-    state = fields.Selection([
-                              ('draft', "Draft"),
+    state = fields.Selection([('draft', "Draft"),
                               ('confirmed', "Confirmed"),
-                              ('done', "Done")
-                              ], default='draft')
-
+                              ('done', "Done")],
+                              default='draft')
+    
     @api.one
-    @api.depends('seats', 'attendee_ids')
-    def _compute_taken_seats(self):
-        print "Session:", self.name
-        print "User:", self.env.user.name
-        if not self.seats:
-            self.taken_seats = 0.0
-        else:
-            self.taken_seats = 100.0 * len(self.attendee_ids) / self.seats
-        return
-
-    @api.onchange('seats')        
-    def _check_seats(self):
-        if self.seats <= 0:
-            return {
-                'warning' : {
-                    'title': "Warning",
-                    'message': "The number of seats must be above 0.",
-                }
-
-            }
-        else:
-            return
-
-    @api.one
-    @api.constrains('instructor_id', 'attendee_ids')
-    def _check_instructor(self):
-        if self.instructor_id in self.attendee_ids:
-            raise ValidationError("Instructor of session '%s' "
-                "cannot attend its own session" % self.name)
-
-    @api.multi
-    def action_confirm(self):
-        self.state = 'confirmed'
-
-    @api.multi
     def action_draft(self):
         self.state = 'draft'
 
-    @api.multi
+    @api.one
+    def action_confirm(self):
+        self.state = 'confirmed'
+
+    @api.one
     def action_done(self):
         self.state = 'done'
+
+    @api.constrains('attendee_ids', 'instructor_id')
+    def _check_instructor_not_in_attendees(self):
+        if self.instructor_id.partner_id in self.attendee_ids:
+            raise ValidationError("The instructor can not attend his own session: %s"
+                                  % self.instructor_id.partner_id.name )
+
+    @api.onchange('seats', 'attendee_ids')
+    def _onchange_seats_attendees(self):
+        if self.seats < len(self.attendee_ids):
+            return {
+                    'warning' : {
+                                 'title' : "Warning",
+                                 'message': "There are more attendees than seats!"
+                                 }
+                    }
+
+    @api.depends('seats', 'attendee_ids')
+    def _compute_taken_seats(self):
+        for session in self:
+            print "Seats: ", session.seats
+            print "Attendees: ", session.attendee_ids
+            if session.seats == 0:
+                session.taken_seats = 0
+            else:
+                session.taken_seats = 100 * len(session.attendee_ids) / session.seats
+
+

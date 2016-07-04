@@ -1,3 +1,4 @@
 import course
 import session
-import res_partner_ext
+import res_users_ext
+import wizard

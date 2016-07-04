@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <record model="res.groups" id="openacademy_manager">
+        <field name="name">Open Academy / Manager </field>
+    </record>
+
+    <record model="ir.rule" id="session_instructor_only">
+        <field name="name">Only the instructor can modify and delete.</field>
+        <field name="model_id" ref="model_openacademy_session" />
+        <field name="groups" eval="[4, ref('openacademy.openacademy_manager')]" />
+        <field name="perm_read" eval="0" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="1" />
+        <field name="domain_force">
+            [('instructor_id', '=', user.id)]
+        </field>
+    </record>
+
+</data>
+</openerp>

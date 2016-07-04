@@ -1,7 +1,7 @@
 # b-*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (c) 2015 brain-tec AG (http://www.braintec-group.com) 
+#    Copyright (c) 2015 brain-tec AG (http://www.brain-tec.ch)
 #    All Right Reserved
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,13 +19,13 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields
 
-class Partner(models.Model):
-    _name = 'res.partner'
-    _inherit = 'res.partner'
+class User(models.Model):
+    _name = 'res.users'
+    _inherit = 'res.users'
 
-    instructor = fields.Boolean(string="Is an instructor?")
+    is_instructor = fields.Boolean(string="Is an instructor?")
 
 
-
+    
