@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="Library" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/library/static/src/js/dashboard.js"></script>
+            <script type="text/javascript" src="/library/static/src/js/chart_widget.js"></script>
+            <script type="text/javascript" src="/library/static/src/js/fields.js"></script>
+            <script type="text/javascript" src="/library/static/src/js/views.js"></script>
+        </xpath>
+
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/less" href="/library/static/src/less/library.less"/>
+        </xpath>
+    </template>
+</odoo>

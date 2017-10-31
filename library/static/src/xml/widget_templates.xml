@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="Dashboard">
+        <div class="o_library"> <!-- We must have only 1 root element inside "t"-->
+            <div class="o_statistics">
+                <div>
+                    <button type="button" class="btn btn_lost_rentals">Lost Rentals</button>
+                    <button type="button" class="btn btn_bad_customers">Bad Customers</button>
+                </div>
+
+                <div>Money in this month:
+                    <t t-esc="widget.stats.money_in"/>
+                    €
+                </div>
+                <div>Number of rentals this month:
+                    <t t-esc="widget.stats.nb_rentals"/>
+                </div>
+                <div>Number of books lost this month:
+                    <t t-esc="widget.stats.nb_lost_books"/>
+                </div>
+                <div>Money lost due to lost books this month:
+                    <t t-esc="widget.stats.money_lost"/>
+                    €
+                </div>
+            </div>
+            <div class="o_fancy_chart"/>
+        </div>
+    </t>
+
+    <t t-name="DashboardButtons">
+        <div>
+            <button type="button" class="btn btn-primary btn_lost_rentals_cp">Lost Rentals (Control Panel)</button>
+            <button type="button" class="btn btn-primary btn_bad_customers_cp">Bad Customers (Control Panel)</button>
+        </div>
+    </t>
+
+    <div t-name="FieldFloatLibraryWarning" class="alert alert-danger" role="alert">
+        This customer owes
+        <t t-esc="amount"/>
+        euros. Ask them to pay right now!
+    </div>
+
+    <li t-name="FieldSysTray" class="o_library_systray">
+        <input type="input" class="o_input"/>
+    </li>
+
+    <t t-name="LibraryCustomerButtons">
+        <button type="button" class="btn btn-primary o_geolocate">Geolocate</button>
+        <button type="button" class="btn btn-primary o_pay_amount">Pay Amount Owed</button>
+    </t>
+
+    <div t-name="CustomerList" class="o_library_list">
+        <table class="table table-striped">
+            <tbody>
+                <t t-foreach="customers" t-as="customer">
+                    <tr t-att-data-id="customer.id"
+                        t-attf-class="o_customer #{customer.id === activeCustomerID ? ' o_active' : ''}">
+                        <td>
+                            <t t-esc="customer.display_name"/>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </div>
+</templates>
