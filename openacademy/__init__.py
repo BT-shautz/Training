@@ -1,3 +1,2 @@
-import course
-import session
-import res_partner_ext
+from . import models
+from . import wizard

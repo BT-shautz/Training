@@ -19,33 +19,12 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from odoo import models, fields, api
 
-class Course(models.Model):
-    _name = 'openacademy.course'
+class Partner(models.Model):
+    _inherit = 'res.partner'
 
-# Use _rec_name if there is no name field.
-#    _rec_name = 'description'
+    instructor = fields.Boolean(string="Is an instructor?")
+    session_ids = fields.Many2many('openacademy.session', string="Sessions")
 
-    name = fields.Char(string="Course")
-    description = fields.Text(string="Course Description")
-    responsible_id = fields.Many2one('res.users', string="Responsible")
-    session_ids = fields.One2many(comodel_name='openacademy.session', inverse_name='course_id', string="Session")
-
-    @api.multi
-    def copy(self, default):
-        default = dict(default or {})
-        new_name = u"Copy of {}".format(self.name)
-        default['name'] = new_name
-        return super(Course, self).copy(default)
-
-    _sql_constraints = [
-        ('name_description_check',
-         'CHECK(name != description)',
-         "The title of the course should not be the description"),
-
-        ('name_unique',
-         'UNIQUE(name)',
-         "The course title must be unique"),
-    ]
 

@@ -2,28 +2,31 @@
 <openerp>
 <data>
 
+    <template id="report_session_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="session">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 t-field="session.name" />
+                        <p>From <span t-field="session.start_date"/> to <span t-field="session.end_date"/></p>
+                        <h3>Attendees:</h3>
+                        <ul>
+                        <t t-foreach="session.attendee_ids" t-as="att">
+                            <li><span t-field="att.name" /></li>
+                        </t>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
     <report id="report_session"
             model="openacademy.session"
             string="Session Report"
             name="openacademy.report_session_view"
             file="openacademy.report_session"
             report_type="qweb-pdf" />
-            
-    <template id="report_session_view">
-        <t t-call="report.html_container">
-            <t t-foreach="docs" t-as="session">
-                <div class="page">
-                    <h1 t-field="session.name" />
-                    <h3>Attendees</h3>
-                    <ul>
-                    <t t-foreach="session.attendee_ids" t-as="att">
-                        <li><span t-field="att.name" /></li>
-                    </t>
-                    </ul>
-                </div>
-            </t>
-        </t>
-    </template>
 
 </data>
 </openerp>
