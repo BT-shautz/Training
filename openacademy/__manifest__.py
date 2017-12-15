@@ -8,8 +8,7 @@
     'version': "1.0",
     'depends': ['base','board'],
     'demo': ['demo/demo.xml'],
-    'data': ['security/security.xml',
-             'security/ir.model.access.csv',
+    'data': ['data/cron.xml',
              'wizard/wizard_view.xml',
              'views/course_view.xml',
              'views/session_view.xml',
@@ -17,5 +16,7 @@
              'views/menus.xml',
              'views/session_board.xml',
              'reports/openacademy_reports.xml',
-    ]
+             'security/security.xml',
+             'security/ir.model.access.csv',
+             ]
 }

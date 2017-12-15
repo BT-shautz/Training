@@ -148,3 +148,12 @@ class Session(models.Model):
     @api.multi
     def action_done(self):
         self.state = 'done'
+
+    @api.model
+    def cron_close_sessions(self):
+        sessions = self.search([])
+        for session in sessions:
+            if session.state == 'confirmed' and \
+               session.end_date < fields.Date.today():
+
+                session.state = 'done'
