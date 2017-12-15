@@ -47,6 +47,8 @@ class Session(models.Model):
     seats = fields.Integer(string="Number of seats", default=10)
 
     course_id = fields.Many2one('openacademy.course', string="Course", required=True)
+    course_description = fields.Text(related='course_id.description',
+                                     string="Course Description")
     instructor_id = fields.Many2one('res.partner', string="Instructor",
                                     domain=lambda self: self._get_instructor_domain())
     attendee_ids = fields.Many2many('res.partner', string="Attendees")
