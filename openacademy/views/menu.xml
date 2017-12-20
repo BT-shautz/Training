@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+    <record model="ir.actions.act_window" id="ViewCourses1">
+        <field name="name">View Courses</field>
+        <field name="res_model">openacademy.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Open a view of all the courses.</p>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="ViewSessions1">
+        <field name="name">View Sessions</field>
+        <field name="res_model">openacademy.session</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Open a view of all the sessions for the available courses.</p>
+        </field>
+    </record>
+
+    <menuitem id="openacademy"
+              name="OpenAcademy" sequence="1" />
+
+    <menuitem id="headMenuElement1Son1" parent="openacademy"
+              name="View Courses" sequence="1"
+              action="ViewCourses1"/>
+
+    <menuitem id="headMenuElement2Son1" parent="openacademy"
+              name="View Sessions" sequence="2"
+              action="ViewSessions1"/>
+    </data>
+</odoo>

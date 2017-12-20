@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <record id="sessionViewTree" model="ir.ui.view">
+            <field name="name">Sessions</field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Session Review">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="number_of_seats"/>
+                    <field name="related_course"/>
+                    <field name="instructor"/>
+                    <field name="percentage_taken_seats" widget="progressbar"/>
+                    <field name="end_date" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sessionViewForm">
+            <field name="name">Session</field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+                <form string="Session">
+                    <group colspan="4">
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="duration"/>
+                        <field name="number_of_seats"/>
+                        <field name="related_course"/>
+                        <field name="instructor"/>
+                        <field name="percentage_taken_seats" widget="progressbar"/>
+                        <field name="end_date"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="List of attendees.">
+                            <group>
+                                <field name="list_of_attendees" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Course description.">
+                            <group>
+                                <field name="related_course_description" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sessionViewSearch">
+            <field name="name">Session</field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="14"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="number_of_seats"/>
+                    <field name="related_course"/>
+                    <field name="instructor"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

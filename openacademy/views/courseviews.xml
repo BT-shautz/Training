@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record id="courseViewTree" model="ir.ui.view">
+            <field name="name">Courses</field>
+            <field name="model">openacademy.course</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Course Review">
+                    <field name="name"/>
+                    <field name="responsible"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="courseViewForm">
+            <field name="name">Courses</field>
+            <field name="model">openacademy.course</field>
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+                <form string="Course">
+                    <group colspan="4">
+                        <field name="name"/>
+                        <field name="responsible"/>
+                    </group>
+
+
+                    <notebook colspan="4">
+                        <page string="Description">
+                            <group>
+                                <field name="description" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="List of sessions">
+                            <group>
+                                <field name="list_of_sessions" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="courseViewSearch">
+            <field name="name">Courses</field>
+            <field name="model">openacademy.course</field>
+            <field name="priority" eval="14"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="responsible"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
