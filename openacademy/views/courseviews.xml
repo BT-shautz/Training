@@ -50,6 +50,12 @@
                     <field name="name"/>
                     <field name="responsible"/>
                     <field name="description"/>
+                    <filter name="my_courses" string="My courses"
+                    domain="[('responsible', '=', uid)]"/>
+                    <group string="Group By">
+                        <filter name="group_by_responsible" string="Responsible"
+                        context="{'group_by':'responsible'}"/>
+                    </group>
                 </search>
             </field>
         </record>

@@ -7,11 +7,15 @@
         <field name="help" type="html">
         <p class="oe_view_nocontent_create">Open a view of all the courses.</p>
         </field>
+        <field name="search_view_id" ref="courseViewSearch"/>
+        <field name="context">
+                {'search_default_my_courses': 1}
+        </field>
     </record>
     <record model="ir.actions.act_window" id="ViewSessions1">
         <field name="name">View Sessions</field>
         <field name="res_model">openacademy.session</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban,calendar,gantt,graph</field>
         <field name="help" type="html">
         <p class="oe_view_nocontent_create">Open a view of all the sessions for the available courses.</p>
         </field>

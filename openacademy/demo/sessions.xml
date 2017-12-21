@@ -1,52 +1,33 @@
 <odoo>
     <data>
+        <record model = "res.partner" id = "base.res_partner_1">
+            <field name="isInstructor" eval="True"/>
+        </record>
+
         <record model = "openacademy.session" id = "thisSession1">
-            <field name = "name">
-                First coding session!
-            </field>
-            <field name="start_date">
-                23/12/2018
-            </field>
-            <field name="duration">
-                5
-            </field>
-            <field name="number_of_seats">
-                3
-            </field>
+            <field name = "name">First coding session!</field>
+            <field name="start_date">23/12/2017</field>
+            <field name="duration">5</field>
+            <field name="number_of_seats">3</field>
+            <field name="color">3</field>
             <field name="related_course" ref="openacademy.thisCourses1"/>
             <field name="instructor" ref="base.res_partner_1"/>
         </record>
         <record model = "openacademy.session" id = "thisSession2">
-            <field name = "name">
-                First cooking session!
-            </field>
-            <field name="start_date">
-                23/12/2018
-            </field>
-            <field name="duration">
-                8
-            </field>
-            <field name="number_of_seats">
-                2
-            </field>
+            <field name = "name">First cooking session!</field>
+            <field name="start_date">23/12/2017</field>
+            <field name="duration">8</field>
+            <field name="number_of_seats">2</field>
             <field name="related_course" ref="openacademy.thisCourses2"/>
-            <field name="instructor" ref="base.res_partner_2"/>
+            <field name="instructor" ref="base.res_partner_1"/>
         </record>
         <record model = "openacademy.session" id = "thisSession3">
-            <field name = "name">
-                First english session!
-            </field>
-            <field name="start_date">
-                23/12/2018
-            </field>
-            <field name="duration">
-                4
-            </field>
-            <field name="number_of_seats">
-                8
-            </field>
+            <field name = "name">First english session!</field>
+            <field name="start_date">23/12/2017</field>
+            <field name="duration">4</field>
+            <field name="number_of_seats">8</field>
             <field name="related_course" ref="openacademy.thisCourses3"/>
-            <field name="instructor" ref="base.res_partner_3"/>
+            <field name="instructor" ref="base.res_partner_1"/>
         </record>
     </data>
 </odoo>

@@ -13,7 +13,14 @@
                 'views/sessionviews.xml',
                 'views/menu.xml',
                 'demo/courses.xml',
-                'demo/sessions.xml'
+                'demo/sessions.xml',
+                'views/childrenpartnerviews.xml',
+                'demo/category.xml',
+                'wizards/wizard_view.xml',
+                'data/session_end_crn.xml',
+                'security/security.xml',
+                'security/ir.model.access.csv',
+                'reports/report.xml'
 
    ],
    # data files containing optionally loaded demonstration data

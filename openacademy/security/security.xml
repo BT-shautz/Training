@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="openacademy_group" model="res.groups">
+            <field name="name">OpenAcademy / Manager</field>
+        </record>
+        <record id="responsible_modify_unlink" model="ir.rule">
+            <field name="name">Responsible can modify and unlink</field>
+            <field name="model_id" ref="model_openacademy_course"></field>
+            <field name="groups" eval="[(4, ref('openacademy.openacademy_group'))]"/>
+            <field name="perm_read" eval="0" />
+            <field name="perm_write" eval="1" />
+            <field name="perm_create" eval="0" />
+            <field name="perm_unlink" eval="1" />
+            <field name="domain_force">['|',('responsible','=', False)'&#038;',('responsible','=',True),('responsible', '=', user.id)]</field>
+        </record>
+    </data>
+</odoo>

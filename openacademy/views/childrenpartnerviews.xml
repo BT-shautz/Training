@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="partnerviewformchildren" >
+            <field name="name">Partner-Session Relationship</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="isInstructor"/>
+                    <field name="partner_session_relation"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

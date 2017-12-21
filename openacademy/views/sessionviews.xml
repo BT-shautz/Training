@@ -5,7 +5,9 @@
             <field name="model">openacademy.session</field>
             <field name="priority" eval="16"/>
             <field name="arch" type="xml">
-                <tree string="Session Review">
+                <tree string="Session Review" decoration-info="duration&lt;5"
+                      decoration-danger="duration&gt;15" editable="bottom">
+                    <field name="total_attendees"/>
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="duration"/>
@@ -14,6 +16,7 @@
                     <field name="instructor"/>
                     <field name="percentage_taken_seats" widget="progressbar"/>
                     <field name="end_date" />
+                    <button name="open_record" type="object" class="oe_highlight" string="Open"/>
                 </tree>
             </field>
         </record>
@@ -24,6 +27,12 @@
             <field name="priority" eval="15"/>
             <field name="arch" type="xml">
                 <form string="Session">
+                    <header>
+                        <button name="change_status_confirmed" type="object" class="oe_highlight" string="Confirm" states="draft"/>
+                        <button name="change_status_draft" type="object" string="Draft" states="confirmed,done"/>
+                        <button name="change_status_done" type="object" string="Done" states="confirmed"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
                     <group colspan="4">
                         <field name="name"/>
                         <field name="start_date"/>
@@ -63,6 +72,88 @@
                     <field name="related_course"/>
                     <field name="instructor"/>
                 </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sessionViewCalendar">
+            <field name="name">Session</field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="19"/>
+            <field name="arch" type="xml">
+
+                <calendar string="session_calendar"
+                    color="color"
+                    date_start="start_date"
+                    date_stop="end_date">
+                    <field name="related_course"/>
+                </calendar>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sessionViewGantt">
+            <field name="name">Session</field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="19"/>
+            <field name="arch" type="xml">
+
+                <gantt string="gantt_sessions"
+                    date_start="start_date"
+                    date_delay="duration_hours"
+                    default_group_by="instructor"/>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sessionViewGraph">
+            <field name="name">Session</field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="19"/>
+            <field name="arch" type="xml">
+
+                <graph string="session_graph"
+                    type="pie">
+                    <field name="related_course"/>
+                    <field name="total_attendees" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sessionViewKanban">
+            <field name="name">Session</field>
+            <field name="model">openacademy.session</field>
+            <field name="priority" eval="18"/>
+            <field name="arch" type="xml">
+                <kanban default_group_by="name">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="duration"/>
+                    <field name="number_of_seats"/>
+                    <field name="related_course"/>
+                    <field name="instructor"/>
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                            oe_kanban_global_click_edit oe_semantic_html_override
+                            oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                                <div class="oe_dropdown_kanban">
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg"/>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    Session
+                                    <field name="name"/>
+                                    <field name="duration"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
     </data>

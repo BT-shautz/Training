@@ -1,31 +1,19 @@
 <odoo>
     <data noupdate="0">
         <record model="openacademy.course" id="thisCourses1">
-            <field name="name">
-                Coding course
-            </field>
-            <field name="description">
-                Learn how to work with Odoo!
-            </field>
-            <field name="responsible" ref="base.res_partner_2"/>
+            <field name="name">Coding course</field>
+            <field name="description">Learn how to work with Odoo!</field>
+            <field name="responsible" ref="base.user_root"/>
         </record>
         <record model="openacademy.course" id="thisCourses2">
-            <field name="name">
-                Cooking course
-            </field>
-            <field name="description">
-                Learn how to cook!
-            </field>
-            <field name="responsible" ref="base.res_partner_1"/>
+            <field name="name">Cooking course</field>
+            <field name="description">Learn how to cook!</field>
+            <field name="responsible" ref="base.user_root"/>
         </record>
         <record model="openacademy.course" id="thisCourses3">
-            <field name="name">
-                English course
-            </field>
-            <field name="description">
-                Learn how to speak english!
-            </field>
-            <field name="responsible" ref="base.res_partner_2"/>
+            <field name="name">English course</field>
+            <field name="description">Learn how to speak english!</field>
+            <field name="responsible" ref="base.user_root"/>
         </record>
     </data>
 </odoo>
